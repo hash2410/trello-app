@@ -1,6 +1,25 @@
 import { Card } from "./Card"
-export function List({listHeading}) {
-    const title = "Hello" , cardTag = "Mock End" ,  cardDate = "🕒 July 420"
+export function List({ listHeading }) {
+    const initialCards = [
+        {
+            id: "c1",
+            title: "Learn React Context API & Hooks",
+            cardTag: "Frontend",
+            cardDate: "🕒 Jul 22"
+        },
+        {
+            id: "c2",
+            title: "Build Weather App Wireframes",
+            cardTag: "Design",
+            cardDate: "🕒 Jul 25"
+        },
+        {
+            id: "c3",
+            title: "Test Authentication Flow",
+            cardTag: "Backend",
+            cardDate: "🕒 Jul 28"
+        }
+    ];
     return (
         <section className="list">
             <div className="list-header">
@@ -8,7 +27,11 @@ export function List({listHeading}) {
             </div>
 
             <div className="cards">
-                <Card title={title} cardTag={cardTag} cardDate={cardDate} />
+                {initialCards.map((card)=>{
+                    return(
+                        <Card key={card.id} title={card.title} cardTag={card.cardTag} cardDate={card.cardDate} />
+                    )
+                })}
             </div>
             <button className="add-card-btn">+ Add Card</button>
         </section>

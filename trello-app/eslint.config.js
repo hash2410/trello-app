@@ -6,6 +6,12 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
+  
+  // 1. Apply base configurations first
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
+  
+  // 2. Apply your custom overrides last
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -26,10 +32,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "react/prop-types":"off"
+      'react/prop-types': 'off', // This will now successfully override the recommended config
     },
   },
-  // Seamlessly apply the working react configs
-  react.configs.flat.recommended,
-  react.configs.flat['jsx-runtime'],
 ]
