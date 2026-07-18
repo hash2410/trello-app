@@ -1,0 +1,154 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#1a1a1a;
+    color:#f5f5f5;
+    min-height:100vh;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:70px;
+    background:#111111;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    border-bottom:1px solid #2f2f2f;
+    box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#ffffff;
+    letter-spacing:.5px;
+}
+
+.add-list-btn{
+    border:none;
+    background:#3c3c3c;
+    color:white;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:.95rem;
+    font-weight:600;
+    transition:.25s;
+}
+
+.add-list-btn:hover{
+    background:#505050;
+}
+
+/* ================= BOARD ================= */
+
+.board{
+    display:flex;
+    gap:25px;
+    align-items:flex-start;
+    padding:30px;
+    overflow-x:auto;
+}
+
+/* ================= LIST ================= */
+
+.list{
+    background:#252525;
+    min-width:320px;
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.list-header{
+    margin-bottom:18px;
+}
+
+.list-header h2{
+    font-size:1.2rem;
+    font-weight:600;
+    color:#ffffff;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.card{
+    background:#353535;
+    padding:16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.25s;
+    border:1px solid transparent;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    background:#404040;
+    border-color:#606060;
+}
+
+.card h3{
+    font-size:1rem;
+    font-weight:500;
+    color:#f5f5f5;
+    line-height:1.4;
+}
+
+/* ================= BUTTON ================= */
+
+.add-card-btn{
+    margin-top:auto;
+    width:100%;
+    border:none;
+    background:#3d3d3d;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:.95rem;
+    font-weight:500;
+    transition:.25s;
+}
+
+.add-card-btn:hover{
+    background:#505050;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+    height:10px;
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1d1d1d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#4d4d4d;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#666;
+}
