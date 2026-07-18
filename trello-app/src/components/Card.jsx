@@ -1,6 +1,6 @@
-export function Card({title , cardTag , cardDate}) {
+export function Card({key , title , cardTag , cardDate}) {
     return (
-        <article className="card">
+        <article key={key} className="card">
             <span className="card-tag tag-frontend">{cardTag}</span>
             <h3>{title}</h3>
             <div className="card-footer">
