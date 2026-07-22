@@ -70,6 +70,20 @@ export function TrelloBoard() {
 
         setBoardData([...boardData, newList]);
     }
+    
+    const handleDeleteCard = (targetListId, targetCardId)=>{
+        const updatedBoardData = boardData.map((list)=>{
+            if(list.id === targetListId){
+                return{
+                    ...list,
+                    cards : list.cards.filter((card)=> { return card.id !== targetCardId})
+                }
+            };
+            return list;    
+        })
+        setBoardData(updatedBoardData);
+    };
+
     return (
         <>
             <Navbar handleListData={handleListData} />
@@ -82,6 +96,7 @@ export function TrelloBoard() {
                             listHeading={list.listHeading}
                             cards={list.cards}
                             handleCardData={handleCardData}
+                            handleDeleteCard={handleDeleteCard}
                         />
                     )
                 })}

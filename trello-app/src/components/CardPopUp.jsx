@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./CardPopUp.css";
+import "./PopUp.css";
 
 export function CardPopUp({ onClose, listId, handleCardData }) {
     const [ title, setTitle ] = useState("");

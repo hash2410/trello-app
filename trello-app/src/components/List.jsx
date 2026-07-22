@@ -1,7 +1,7 @@
 import { Card } from "./Card"
 import { useState } from "react";
 import { CardPopUp } from "./CardPopUp";
-export function List({ listHeading , cards , listId , handleCardData }) {
+export function List({ listHeading , cards , listId , handleCardData , handleDeleteCard }) {
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
     return (
@@ -13,7 +13,7 @@ export function List({ listHeading , cards , listId , handleCardData }) {
             <div className="cards">
                 {cards.map((card)=>{
                     return(
-                    <Card key={card.id} title={card.title} cardTag={card.cardTag} cardDate={card.cardDate} />
+                    <Card key={card.id} cardId={card.id} listId={listId} title={card.title} cardTag={card.cardTag} cardDate={card.cardDate} handleDeleteCard={handleDeleteCard} />
                     );
                 })}
             </div>
