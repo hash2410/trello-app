@@ -1,11 +1,28 @@
-export function Navbar(){
-    return(
-        <header className="navbar">
-                <h1 className="logo">Trello Clone</h1>
+import { useState } from "react";
+import { ListPopUp } from "./ListPopUp";
 
-                <nav>
-                    <button className="add-list-btn">Add List</button>
-                </nav>
-            </header>
+export function Navbar({handleListData}) {
+    const [isEditing, setIsEditing] = useState(false);
+    return (
+        <header className="navbar">
+            <h1 className="logo">Trello Clone</h1>
+
+            <nav>
+                <button
+                    className="add-list-btn"
+                    onClick={() => setIsEditing(true)}
+                >
+                    + Add List
+                </button>
+
+                {
+                    isEditing &&
+                    <ListPopUp
+                        handleAddList={handleListData}
+                        onClose={() => setIsEditing(false)}
+                    />
+                }
+            </nav>
+        </header>
     )
 }

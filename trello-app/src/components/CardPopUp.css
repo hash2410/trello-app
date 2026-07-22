@@ -55,6 +55,18 @@
     color: #757575;
 }
 
+/* Style for native date picker calendar icon color */
+.popUp-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Flips the calendar icon to white to match dark mode */
+    cursor: pointer;
+}
+
+/* Dropdown color fix for placeholder styling look */
+.popUp-select:invalid, 
+.popUp-select option[value=""] {
+    color: #757575;
+}
+
 .popUp-actions {
     display: flex;
     justify-content: flex-end;
@@ -74,20 +86,29 @@
 
 /* Primary blue CTA for submitting */
 .submit-btn {
-    background: #2563eb; /* Clean blue action color */
-    color: white;
+    background: transparent; /* Semi-transparent blue background */
+    border: 1px solid #2563eb !important; /* Defined crisp blue border border */
+    color: #60a5fa; /* Vibrant light-blue text color */
+    text-transform: uppercase; /* Matches the tag styling format */
+    letter-spacing: 0.5px;
+    font-size: 0.85rem !important; /* Slightly smaller to mimic tag text footprint */
 }
 
 .submit-btn:hover {
-    background: #3b82f6;
+    background: rgba(37, 99, 235, 0.3); /* Shifts slightly brighter on focus hover */
+    color: #ffffff;
 }
-
 /* Cancel button styled like your secondary buttons */
 .close-btn {
-    background: #3c3c3c;
-    color: #ffffff;
+    background: transparent;
+    border: 1px solid #c20000 !important;
+    color:  #c20000;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .close-btn:hover {
-    background: #505050;
+    background:#c20000;
+    color: #fafafa;
 }

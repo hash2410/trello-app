@@ -1,11 +1,11 @@
 import { Card } from "./Card"
 import { useState } from "react";
 import { CardPopUp } from "./CardPopUp";
-export function List({ listHeading , cards , key }) {
+export function List({ listHeading , cards , listId , handleCardData }) {
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
     return (
-        <section key={key} className="list">
+        <section className="list">
             <div className="list-header">
                 <h2>{listHeading}</h2>
             </div>
@@ -20,7 +20,7 @@ export function List({ listHeading , cards , key }) {
             <button className="add-card-btn" onClick={()=>{
                 setIsPopUpOpen(true);
             }}>+ Add Card</button>
-            {isPopUpOpen && <CardPopUp onClose={() => setIsPopUpOpen(false)} />}
+            {isPopUpOpen && <CardPopUp onClose={() => setIsPopUpOpen(false)} handleCardData={handleCardData} listId={listId}/>}
         </section>
     )
 }

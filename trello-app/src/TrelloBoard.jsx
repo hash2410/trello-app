@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import './TrelloBoard.css';
 import { List } from './components/List';
 import { Navbar } from "./components/Navbar"
 
 export function TrelloBoard() {
-    const boardData = [
+    const [boardData, setBoardData] = useState([
         {
             id: "l1",
             listHeading: "To Do",
@@ -31,7 +32,6 @@ export function TrelloBoard() {
                     title: "Create Trello Clone UI Elements",
                     cardTag: "Frontend",
                     cardDate: "🕒 Jul 19"
-                    // Note: You can conditionally add a CSS class like `card-date-urgent` in your Card component later based on dates!
                 }
             ]
         },
@@ -47,14 +47,42 @@ export function TrelloBoard() {
                 }
             ]
         }
-    ];
+    ])
+    const handleCardData = (targetListId, newCard) => {
+        const updatedBoardData = boardData.map((list) => {
+            if (list.id === targetListId) {
+                return {
+                    ...list,
+                    cards: [...list.cards, newCard]
+                }
+            }
+            return list;
+        });
+        setBoardData(updatedBoardData);
+    };
+
+    const handleListData = (title) => {
+        const newList = {
+            id: crypto.randomUUID(),
+            listHeading: title,
+            cards: []
+        };
+
+        setBoardData([...boardData, newList]);
+    }
     return (
         <>
-            <Navbar />
+            <Navbar handleListData={handleListData} />
             <main className="board">
                 {boardData.map((list) => {
                     return (
-                        <List key={list.id} listHeading={list.listHeading} cards={list.cards} />
+                        <List
+                            key={list.id}
+                            listId={list.id}
+                            listHeading={list.listHeading}
+                            cards={list.cards}
+                            handleCardData={handleCardData}
+                        />
                     )
                 })}
 
