@@ -97,7 +97,14 @@ body {
     overflow-y: auto;
     /* Internal scrollbar if a column gets too full */
     padding-right: 4px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     /* Space for the internal scrollbar */
+}
+
+/* --- Hide scrollbar for Chrome, Safari and Opera --- */
+.cards::-webkit-scrollbar {
+    display: none;
 }
 
 /* ================= INDIVIDUAL CARD ================= */

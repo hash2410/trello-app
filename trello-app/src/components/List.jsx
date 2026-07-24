@@ -1,7 +1,9 @@
-import { Card } from "./Card"
+import { Card } from "./Card";
 import { useState } from "react";
 import { CardPopUp } from "./CardPopUp";
-export function List({ listHeading , cards , listId , handleCardData , handleDeleteCard }) {
+import { Droppable } from "@hello-pangea/dnd"; 
+
+export function List({ listHeading, cards, listId, handleCardData, handleDeleteCard }) {
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
     return (
@@ -10,17 +12,43 @@ export function List({ listHeading , cards , listId , handleCardData , handleDel
                 <h2>{listHeading}</h2>
             </div>
 
-            <div className="cards">
-                {cards.map((card)=>{
-                    return(
-                    <Card key={card.id} cardId={card.id} listId={listId} title={card.title} cardTag={card.cardTag} cardDate={card.cardDate} handleDeleteCard={handleDeleteCard} />
-                    );
-                })}
-            </div>
-            <button className="add-card-btn" onClick={()=>{
-                setIsPopUpOpen(true);
-            }}>+ Add Card</button>
-            {isPopUpOpen && <CardPopUp onClose={() => setIsPopUpOpen(false)} handleCardData={handleCardData} listId={listId}/>}
+            <Droppable droppableId={listId}>
+                {(provided) => (
+                    <div 
+                        className="cards"
+                        ref={provided.innerRef} 
+                        {...provided.droppableProps}
+                    >
+                        {cards.map((card, index) => { 
+                            return (
+                                <Card 
+                                    key={card.id} 
+                                    cardId={card.id} 
+                                    index={index}       
+                                    listId={listId} 
+                                    title={card.title} 
+                                    cardTag={card.cardTag} 
+                                    cardDate={card.cardDate} 
+                                    handleDeleteCard={handleDeleteCard} 
+                                />
+                            );
+                        })}
+                        {provided.placeholder} 
+                    </div>
+                )}
+            </Droppable>
+
+            <button className="add-card-btn" onClick={() => setIsPopUpOpen(true)}>
+                + Add Card
+            </button>
+            
+            {isPopUpOpen && (
+                <CardPopUp 
+                    onClose={() => setIsPopUpOpen(false)} 
+                    handleCardData={handleCardData} 
+                    listId={listId}
+                />
+            )}
         </section>
-    )
+    );
 }
