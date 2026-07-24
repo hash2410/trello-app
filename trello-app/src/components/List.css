@@ -1,0 +1,58 @@
+.list {
+    background: #252525;
+    min-width: 320px;
+    max-width: 320px;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    /* Prevents lists from growing past the screen height */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+}
+
+.list-header {
+    margin-bottom: 18px;
+}
+
+.list-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ================= CARDS CONTAINER ================= */
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 18px;
+    overflow-y: auto;
+    /* Internal scrollbar if a column gets too full */
+    padding-right: 4px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    /* Space for the internal scrollbar */
+}
+
+/* --- Hide scrollbar for Chrome, Safari and Opera --- */
+
+.add-card-btn {
+    margin-top: auto;
+    width: 100%;
+    border: none;
+    background: #3d3d3d;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: .95rem;
+    font-weight: 500;
+    transition: .25s;
+}
+
+.add-card-btn:hover {
+    background: #505050;
+}
+

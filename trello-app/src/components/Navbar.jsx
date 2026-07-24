@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ListPopUp } from "./ListPopUp";
+import "./Navbar.css"
 
 export function Navbar({handleListData}) {
     const [isEditing, setIsEditing] = useState(false);

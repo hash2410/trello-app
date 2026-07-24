@@ -1,4 +1,5 @@
 import { Draggable } from "@hello-pangea/dnd"; 
+import "./Card.css";
 
 export function Card({ cardId, index, listId, title, cardTag, cardDate, handleDeleteCard }) {
     const tagClass = cardTag ? `tag-${cardTag.toLowerCase()}` : "";

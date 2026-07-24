@@ -2,6 +2,7 @@ import { Card } from "./Card";
 import { useState } from "react";
 import { CardPopUp } from "./CardPopUp";
 import { Droppable } from "@hello-pangea/dnd"; 
+import "./List.css";
 
 export function List({ listHeading, cards, listId, handleCardData, handleDeleteCard }) {
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
